@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HangmanComponent } from './hangman/hangman.component';
 import { PuzzleComponent } from './puzzle/puzzle.component';
+import { GuessesComponent } from './guesses/guesses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HangmanComponent,
-    PuzzleComponent
+    PuzzleComponent,
+    GuessesComponent
   ],
   imports: [
     BrowserModule
