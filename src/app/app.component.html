@@ -1,6 +1,36 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container" *ngIf="gameWon || gameLost">
+
+  <div class="row" *ngIf="gameWon">
+    <div class="col-md-12">
+      <div class="text-center">
+        <h1 style="color: green">YOU WON!</h1>
+        <img src="assets/winner.gif">
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="gameLost">
+    <div class="col-md-12">
+      <div class="text-center">
+        <h1 style="color: red">GAME OVER, LOSER!</h1>
+        <img src="assets/loser.gif">
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-primary" (click)="resetGame()">Reset Game</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="container" *ngIf="!gameWon && !gameLost">
 
   <div class="row">
     <div class="col-md-12">
@@ -10,7 +40,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <app-puzzle [puzzle] = "puzzleSolution" [solvedLetters]="correctGuesses"></app-puzzle>
+      <app-puzzle [puzzle]="puzzleSolution" [solvedLetters]="correctGuesses"></app-puzzle>
     </div>
   </div>
   <hr>
@@ -24,7 +54,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <app-guesses [wrongLetters] = "incorrectGuesses"></app-guesses>
+      <app-guesses [wrongLetters]="incorrectGuesses"></app-guesses>
     </div>
   </div>
 

@@ -14,6 +14,9 @@ export class AppComponent {
   incorrectGuesses: string[] = [];
   correctGuesses: string[] = [];
 
+  gameWon = false;
+  gameLost = false;
+
   onGuessMade(newGuess: string) {
     if (this.correctGuesses.includes(newGuess) || this.incorrectGuesses.includes(newGuess)) {
       // do nothing, guess was already made...
@@ -25,6 +28,20 @@ export class AppComponent {
     } else {
       this.incorrectGuesses.push(newGuess)
     }
+
+    this.checkGameState()
+  }
+
+  resetGame() {
+    this.gameLost = false;
+    this.gameWon = false;
+    this.incorrectGuesses = []
+    this.correctGuesses = []
+  }
+
+  private checkGameState() {
+    this.gameWon = new Set(this.puzzleSolution).size == this.correctGuesses.length;
+    this.gameLost = this.incorrectGuesses.length >= 6;
   }
 
 }
