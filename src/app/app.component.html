@@ -18,14 +18,14 @@
   <hr>
   <div class="row">
     <div class="col-md-12">
-      <app-letter-guess (guess)="onGuessMade()"></app-letter-guess>
+      <app-letter-guess (guess)="onGuessMade($event)"></app-letter-guess>
     </div>
   </div>
   <hr>
 
   <div class="row">
     <div class="col-md-12">
-      <app-guesses></app-guesses>
+      <app-guesses [wrongLetters] = "incorrectGuesses"></app-guesses>
     </div>
   </div>
 

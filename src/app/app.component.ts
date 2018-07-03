@@ -9,11 +9,10 @@ import { GuessesComponent } from './guesses/guesses.component';
 export class AppComponent {
   title = 'app';
 
-  puzzle = "Neat"
+  puzzle = "NEAT"
 
   incorrectGuesses = [];
   correctGuesses = [];
-
 
   onGuessMade(newGuess : string) {
     if(this.correctGuesses.includes(newGuess) || this.incorrectGuesses.includes(newGuess)) {

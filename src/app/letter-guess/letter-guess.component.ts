@@ -30,7 +30,8 @@ export class LetterGuessComponent implements OnInit {
   }
 
   onGuessPressed() {
-    this.guessEmitter.emit(this.currentGuess)
+    this.guessEmitter.emit(this.currentGuess.toUpperCase())
+    this.currentGuess=""
   }
 
 

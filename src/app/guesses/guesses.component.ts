@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-guesses',
@@ -9,7 +9,13 @@ export class GuessesComponent implements OnInit {
 
   constructor() { }
 
+  @Input("wrongLetters") incorrectGuesses = []
+
   ngOnInit() {
+  }
+
+  formattedGuesses() {
+    return this.incorrectGuesses.join(", ")
   }
 
 }
