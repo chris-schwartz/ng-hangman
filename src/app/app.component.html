@@ -1,12 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
 <app-header></app-header>
 
 <div class="container">
 
   <div class="row">
     <div class="col-md-12">
-      <app-hangman></app-hangman>
+      <app-hangman [failedAttempts]="incorrectGuesses.length"></app-hangman>
     </div>
   </div>
 
@@ -16,6 +14,7 @@
     </div>
   </div>
   <hr>
+
   <div class="row">
     <div class="col-md-12">
       <app-letter-guess (guess)="onGuessMade($event)"></app-letter-guess>
