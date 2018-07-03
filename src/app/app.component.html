@@ -4,7 +4,6 @@
 
 <div class="container">
 
-
   <div class="row">
     <div class="col-md-12">
       <app-hangman></app-hangman>
@@ -19,7 +18,7 @@
   <hr>
   <div class="row">
     <div class="col-md-12">
-      <app-letter-guess></app-letter-guess>
+      <app-letter-guess (guess)="onGuessMade()"></app-letter-guess>
     </div>
   </div>
   <hr>
