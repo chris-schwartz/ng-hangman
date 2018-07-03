@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { HangmanComponent } from './hangman/hangman.component';
 import { PuzzleComponent } from './puzzle/puzzle.component';
 import { GuessesComponent } from './guesses/guesses.component';
+import { LetterGuessComponent } from './letter-guess/letter-guess.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { GuessesComponent } from './guesses/guesses.component';
     HeaderComponent,
     HangmanComponent,
     PuzzleComponent,
-    GuessesComponent
+    GuessesComponent,
+    LetterGuessComponent
   ],
   imports: [
     BrowserModule
