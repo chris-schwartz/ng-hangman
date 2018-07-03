@@ -9,18 +9,18 @@ import { GuessesComponent } from './guesses/guesses.component';
 export class AppComponent {
   title = 'app';
 
-  puzzle = "NEAT"
+  puzzleSolution = ['A', 'N', 'G', 'U', 'L', 'A', 'R']
 
-  incorrectGuesses = [];
-  correctGuesses = [];
+  incorrectGuesses: string[] = [];
+  correctGuesses: string[] = [];
 
-  onGuessMade(newGuess : string) {
-    if(this.correctGuesses.includes(newGuess) || this.incorrectGuesses.includes(newGuess)) {
-        // do nothing, guess was already made...
-        return
+  onGuessMade(newGuess: string) {
+    if (this.correctGuesses.includes(newGuess) || this.incorrectGuesses.includes(newGuess)) {
+      // do nothing, guess was already made...
+      return
     }
 
-    if(this.puzzle.includes(newGuess)) {
+    if (this.puzzleSolution.includes(newGuess)) {
       this.correctGuesses.push(newGuess)
     } else {
       this.incorrectGuesses.push(newGuess)
