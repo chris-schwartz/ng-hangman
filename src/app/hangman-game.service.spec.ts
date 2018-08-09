@@ -1,20 +1,19 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { HangmanGameServiceService } from './hangman-game-service.service';
-import { empty } from '../../node_modules/rxjs';
+import { HangmanGameService } from './hangman-game.service';
 
-describe('HangmanGameServiceService', () => {
+describe('HangmanGameService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [HangmanGameServiceService]
+      providers: [HangmanGameService]
     });
   });
 
-  it('should be created', inject([HangmanGameServiceService], (service: HangmanGameServiceService) => {
+  it('should be created', inject([HangmanGameService], (service: HangmanGameService) => {
     expect(service).toBeTruthy();
   }));
 
-  it('should track wrong guesses', inject([HangmanGameServiceService], (service: HangmanGameServiceService) => {
+  it('should track wrong guesses', inject([HangmanGameService], (service: HangmanGameService) => {
     service.setSolution("ANGULAR");
 
     service.processGuess("a");
@@ -28,7 +27,7 @@ describe('HangmanGameServiceService', () => {
 
   }));
 
-  it('should track correct guesses', inject([HangmanGameServiceService], (service: HangmanGameServiceService) => {
+  it('should track correct guesses', inject([HangmanGameService], (service: HangmanGameService) => {
     service.setSolution("ANGULAR");
 
     service.processGuess("Z");
@@ -41,7 +40,7 @@ describe('HangmanGameServiceService', () => {
 
   }));
 
-  it('should detect when game is won', inject([HangmanGameServiceService], (service: HangmanGameServiceService) => {
+  it('should detect when game is won', inject([HangmanGameService], (service: HangmanGameService) => {
     service.setSolution("ANGULAR");
 
     service.processGuess("A");
@@ -55,7 +54,7 @@ describe('HangmanGameServiceService', () => {
     expect(service.gameOver).toBeTruthy()
   }));
 
-  it('should detect when game is lost', inject([HangmanGameServiceService], (service: HangmanGameServiceService) => {
+  it('should detect when game is lost', inject([HangmanGameService], (service: HangmanGameService) => {
     service.setSolution("ANGULAR");
 
     service.processGuess("z");
@@ -70,7 +69,7 @@ describe('HangmanGameServiceService', () => {
     expect(service.gameOver).toBeTruthy()
   }));
 
-  it('should reset game state', inject([HangmanGameServiceService], (service: HangmanGameServiceService) => {
+  it('should reset game state', inject([HangmanGameService], (service: HangmanGameService) => {
     service.setSolution("ANGULAR");
 
     service.processGuess("z");
