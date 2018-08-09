@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HangmanGameService } from '../hangman-game.service';
 
 @Component({
   selector: 'app-guesses',
@@ -7,15 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GuessesComponent implements OnInit {
 
-  constructor() { }
-
-  @Input("wrongLetters") incorrectGuesses = []
+  constructor(private gameService : HangmanGameService) { }
 
   ngOnInit() {
   }
 
   formattedGuesses() {
-    return this.incorrectGuesses.join(", ")
+    return this.gameService.wrongGuesses.join(", ")
   }
 
 }

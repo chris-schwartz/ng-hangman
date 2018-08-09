@@ -1,8 +1,8 @@
 <app-header></app-header>
 
-<div class="container" *ngIf="gameWon || gameLost">
+<div class="container" *ngIf="gameService.gameOver">
 
-  <div class="row" *ngIf="gameWon">
+  <div class="row" *ngIf="gameService.gameWon">
     <div class="col-md-12">
       <div class="text-center">
         <h1 style="color: green">YOU WON!</h1>
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="row" *ngIf="gameLost">
+  <div class="row" *ngIf="!gameService.gameWon">
     <div class="col-md-12">
       <div class="text-center">
         <h1 style="color: red">GAME OVER, LOSER!</h1>
@@ -24,37 +24,37 @@
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <button type="button" class="btn btn-primary" (click)="resetGame()">Reset Game</button>
+      <button type="button" class="btn btn-primary" (click)="gameService.resetGame()">Reset Game</button>
     </div>
   </div>
 
 </div>
 
-<div class="container" *ngIf="!gameWon && !gameLost">
+<div class="container" *ngIf="!gameService.gameOver">
 
   <div class="row">
     <div class="col-md-12">
-      <app-hangman [failedAttempts]="incorrectGuesses.length"></app-hangman>
+      <app-hangman></app-hangman>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12">
-      <app-puzzle [puzzle]="puzzleSolution" [solvedLetters]="correctGuesses"></app-puzzle>
-    </div>
-  </div>
-  <hr>
-
-  <div class="row">
-    <div class="col-md-12">
-      <app-letter-guess (guess)="onGuessMade($event)"></app-letter-guess>
+      <app-puzzle></app-puzzle>
     </div>
   </div>
   <hr>
 
   <div class="row">
     <div class="col-md-12">
-      <app-guesses [wrongLetters]="incorrectGuesses"></app-guesses>
+      <app-letter-guess></app-letter-guess>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+      <app-guesses></app-guesses>
     </div>
   </div>
 

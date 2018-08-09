@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { HangmanGameService } from '../hangman-game.service';
 
 @Component({
   selector: 'app-letter-guess',
@@ -9,9 +10,7 @@ export class LetterGuessComponent implements OnInit {
   currentGuess = ""
   errorMessage = ""
 
-  @Output("guess") guessEmitter = new EventEmitter<string>();
-
-  constructor() { }
+  constructor(private gameService : HangmanGameService) { }
 
   ngOnInit() {
   }
@@ -30,7 +29,7 @@ export class LetterGuessComponent implements OnInit {
   }
 
   onGuessPressed() {
-    this.guessEmitter.emit(this.currentGuess.toUpperCase())
+    this.gameService.processGuess(this.currentGuess.toUpperCase())
     this.currentGuess = ""
   }
 

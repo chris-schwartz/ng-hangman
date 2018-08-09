@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HangmanGameService } from '../hangman-game.service';
 
 @Component({
   selector: 'app-hangman',
@@ -6,15 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./hangman.component.css']
 })
 export class HangmanComponent implements OnInit {
-  @Input("failedAttempts") failures: any;
 
-  constructor() { }
+
+  constructor(private gameService: HangmanGameService) { }
 
   ngOnInit() {
   }
 
   getImagePath() {
-    const index = Math.min(this.failures, 6);
+    const index = Math.min(this.gameService.wrongGuesses.length, 6);
     return "assets/" + index + ".jpg"
   }
 
